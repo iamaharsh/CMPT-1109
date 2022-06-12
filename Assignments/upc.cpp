@@ -16,7 +16,7 @@ void printDigitsline(int type) {
 		cout << endl << "Enter first 17 digits of your product code: ";
 }
 
-int checkDigits(int type, int code) {
+int checkDigits(int type, long long int code) {
 	int oddSum = 0;
 	int evenSum = 0;
 	int digit;
@@ -30,7 +30,70 @@ int checkDigits(int type, int code) {
 
 			code /= 10;
 		}
-		digit = (evenSum + (oddSum*3)) % 10;
+		int sum = evenSum + (oddSum * 3);
+		if (sum % 10 == 0)
+			return 0;
+		digit = (10 - ((sum) % 10));
+		return digit;
+	}
+	else if (type == 2) {
+		for (int i = 0; i <11 ; i++) {
+			if (i % 2 == 0)
+				oddSum += code % 10;
+			else if (i % 2 == 1)
+				evenSum += code % 10;
+			
+			code /= 10;
+		}
+		int sum = evenSum + (oddSum * 3);
+		if (sum % 10 == 0)
+			return 0;
+		digit = (10 - ((sum) % 10));
+		return digit;
+	}
+	else if (type == 3) {
+		for (int i = 0; i < 12; i++) {
+			if (i % 2 == 0)
+				evenSum += code % 10;
+			else if (i % 2 == 1)
+				oddSum += code % 10;
+
+			code /= 10;
+		}
+		int sum = evenSum + (oddSum * 3);
+		if (sum % 10 == 0)
+			return 0;
+		digit = (10 - ((sum) % 10));
+		return digit;
+	}
+	else if (type == 4) {
+		for (int i = 0; i < 13; i++) {
+			if (i % 2 == 0)
+				oddSum += code % 10;
+			else if (i % 2 == 1)
+				evenSum += code % 10;
+
+			code /= 10;
+		}
+		int sum = evenSum + (oddSum * 3);
+		if (sum % 10 == 0)
+			return 0;
+		digit = (10 - ((sum) % 10));
+		return digit;
+	}
+	else if (type == 5) {
+		for (int i = 0; i < 17; i++) {
+			if (i % 2 == 0)
+				oddSum += code % 10;
+			else if (i % 2 == 1)
+				evenSum += code % 10;
+
+			code /= 10;
+		}
+		int sum = evenSum + (oddSum * 3);
+		if (sum % 10 == 0)
+			return 0;
+		digit = (10 - ((sum) % 10));
 		return digit;
 	}
 	
@@ -40,7 +103,7 @@ int main() {
 	printMenu();
 
 	int upcType;
-	int digits;
+	long long int digits;
 
 	cout << "Choose your product code type:";
 	cin >> upcType;
@@ -49,8 +112,8 @@ int main() {
 	cin >> digits;
 
 	cout << endl << "--------------------" << endl;
-
-	cout <<  "The check digit is " << checkDigits(upcType, digits) << endl << "The product code is " << digits << checkDigits(upcType, digits);
+	
+	cout <<  "The check digit is: " << checkDigits(upcType, digits) << endl << "The product code is " << digits << checkDigits(upcType, digits);
 
 	return 0;
 }
