@@ -6,18 +6,18 @@ void printMenu() {
 
 void printDigitsline(int type) {
 	if (type == 1)
-		cout << endl << "Enter first 7 digits of your product code: ";
+		cout << endl << "Enter first 7 digits of your product code:";
 	else if (type == 2)
-		cout << endl << "Enter first 11 digits of your product code: ";
+		cout << endl << "Enter first 11 digits of your product code:";
 	else if (type == 3)
-		cout << endl << "Enter first 12 digits of your product code: ";
+		cout << endl << "Enter first 12 digits of your product code:";
 	else if (type == 4)
-		cout << endl << "Enter first 13 digits of your product code: ";
+		cout << endl << "Enter first 13 digits of your product code:";
 	else if (type == 5)
-		cout << endl << "Enter first 17 digits of your product code: ";
+		cout << endl << "Enter first 17 digits of your product code:";
 }
 
-int length(long int code) {
+int length(long long int code) {
 	int len = 0;
 	for (code = abs(code); code != 0; len++, code /= 10) continue;
 	return len;
@@ -67,7 +67,7 @@ int checkDigits(int type, long long int code) {
 
 			code /= 10;
 		}
-		int sum = evenSum + (oddSum * 3);
+		int sum = (evenSum * 3) + oddSum;
 		if (sum % 10 == 0)
 			return 0;
 		digit = (10 - ((sum) % 10));
