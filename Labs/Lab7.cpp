@@ -13,7 +13,11 @@ public:
     Movie(string nameInput, string MPAAinput) {
         name = nameInput;
         mpaaRating = MPAAinput;
-        
+        terribleCount = 0;
+        badCount = 0;
+        okCount = 0;
+        goodCount = 0;
+        greatCount = 0;
     }
     Movie() {
         terribleCount = 0;
@@ -34,7 +38,7 @@ public:
         else if (category == 5)
             greatCount++;
         else
-            cout << "Not correct score";
+            cout << "Not correct category please try again." << endl;
             
     }
     void setName(string a) {
@@ -50,11 +54,11 @@ public:
         return mpaaRating;
     }
     double getAverage() {
-        return(terribleCount * 1 +
-            badCount * 2 +
-            okCount * 3 +
-            goodCount * 4 +
-            greatCount * 5) / 5.0;
+        return(terribleCount * 1.0 +
+            badCount * 2.0 +
+            okCount * 3.0 +
+            goodCount * 4.0 +
+            greatCount * 5.0) / 5.0;
     }
 };
 
@@ -67,9 +71,9 @@ int main()
     movie1.addRating(3);
     movie1.addRating(3);
     movie1.addRating(5);
-    movie1.getName(); //300
-    movie1.getMPAA(); //R
-    cout << movie1.getAverage(); //2.6
+    cout << movie1.getName() << endl; //300
+    cout << movie1.getMPAA() << endl;  //R
+    cout << movie1.getAverage() << endl;  //2.6
 
     Movie movie2;
     movie2.setName("The GodFather"); 
@@ -79,9 +83,9 @@ int main()
     movie2.addRating(5);
     movie2.addRating(5);
     movie2.addRating(5);
-    movie2.getName(); //The Godfather
-    movie2.getMPAA(); //PG-13
-    cout << movie1.getAverage(); //3.8
+    cout << movie2.getName() << endl;  //The Godfather
+    cout << movie2.getMPAA() << endl;  //PG-13
+    cout << movie2.getAverage() << endl;  //3.8
     return 0;
 }
 
