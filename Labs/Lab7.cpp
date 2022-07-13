@@ -58,7 +58,7 @@ public:
             badCount * 2.0 +
             okCount * 3.0 +
             goodCount * 4.0 +
-            greatCount * 5.0) / 5.0;
+            greatCount * 5.0) / ((terribleCount+badCount+okCount+goodCount+greatCount));
     }
 };
 
