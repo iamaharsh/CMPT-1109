@@ -125,16 +125,16 @@ int main() {
 
 	cout << rational1.add(rational2) << endl;
 
-	cout << rational1.sub(rational2) << endl;
+	cout << rational1.substract(rational2) << endl;
 
-	cout << rational1.mul(rational2) << endl;
+	cout << rational1.multiply(rational2) << endl;
 
-	cout << rational1.div(rational2) << endl;
+	cout << rational1.divide(rational2) << endl;
 
 	cout << rational1.less(rational2) << endl;
 
-	cout << rational1.neg() << endl;
+	cout << rational1.negative() << endl;
 
-	cout << rational2.neg() << endl;
+	cout << rational2.negative() << endl;
 	return 0;
 }
