@@ -120,7 +120,21 @@ int main() {
 	cout << "Enter Denominator :";
 	cin >> d2;
 
-	rationalNumber(n1, d1);
-	rationalNumber(n2, d2);
+	rationalNumber rational1(n1, d1);
+	rationalNumber rational2(n2, d2);
+
+	cout << rational1.add(rational2) << endl;
+
+	cout << rational1.sub(rational2) << endl;
+
+	cout << rational1.mul(rational2) << endl;
+
+	cout << rational1.div(rational2) << endl;
+
+	cout << rational1.less(rational2) << endl;
+
+	cout << rational1.neg() << endl;
+
+	cout << rational2.neg() << endl;
 	return 0;
 }
