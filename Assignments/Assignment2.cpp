@@ -47,7 +47,7 @@ public:
 		c = x.getNum();
 		d = x.getDenom();
 
-		return ((a * d + b * c) / (b * d));
+		return ((a * d * 1.0 + b * c * 1.0) / (b * d * 1.0));
 	}
 	double substract(rationalNumber x) {
 		int a, b, c, d;
@@ -56,7 +56,7 @@ public:
 		c = x.getNum();
 		d = x.getDenom();
 
-		return ((a * d - b * c) / (b * d));
+		return ((a * d * 1.0 - b * c * 1.0) / (b * d * 1.0));
 	}
 	double multiply(rationalNumber x) {
 		int a, b, c, d;
@@ -65,7 +65,7 @@ public:
 		c = x.getNum();
 		d = x.getDenom();
 
-		return ((a * c) / (b * d));
+		return ((a * c * 1.0) / (b * d * 1.0));
 	}
 	double divide(rationalNumber x) {
 		int a, b, c, d;
@@ -74,7 +74,7 @@ public:
 		c = x.getNum();
 		d = x.getDenom();
 
-		return ((a * d) / (c * b));
+		return ((a * d * 1.0) / (c * b * 1.0));
 	}
 	bool less(rationalNumber x) {
 		int a, b, c, d;
@@ -83,7 +83,7 @@ public:
 		c = x.getNum();
 		d = x.getDenom();
 
-		if ((a * d) < (c * b))
+		if ((a * d * 1.0) < (c * b * 1.0))
 			return true;
 		else
 			return false;
@@ -93,17 +93,16 @@ public:
 		a = getNum();
 		b = getDenom();
 
-		return ((-1 * a) / b);
+		return ((-1 * a * 1.0) / b * 1.0);
+	}
+	void input() {
+
+	}
+	void output() {
+
 	}
 	
 };
-
-void input() {
-
-}
-void output() {
-
-}
 
 int main() {
 	int n1, d1, n2, d2;
@@ -114,7 +113,7 @@ int main() {
 	cout << "Enter Denominator :";
 	cin >> d1;
 
-	cout << " Rational Number#2 ::" << endl;
+	cout << " Rational Number#2 :" << endl;
 	cout << "Enter Numerator :";
 	cin >> n2;
 	cout << "Enter Denominator :";
