@@ -19,52 +19,91 @@ public:
 	}
 
 	//Setter Getter
-	void rationalNumber setNum(int numerator)
+	void setNum(int numerator)
 	{
 		this->numerator = numerator;
 	}
 
-	int rationalNumber getNum()
+	int getNum()
 	{
 		return numerator;
 	}
 
-	void rationalNumber setDenom(int denom)
+	void setDenom(int denom)
 	{
 		this->denominator = denominator;
 	}
 
-	int rationalNumber getDenom()
+	int getDenom()
 	{
 		return denominator;
 	}
 
+	//Member functions to do calculation
+	double add(rationalNumber x) {
+		int a, b, c, d;
+		a = getNum();
+		b = getDenom();
+		c = x.getNum();
+		d = x.getDenom();
 
-	float add() {
+		return ((a * d + b * c) / (b * d));
+	}
+	double substract(rationalNumber x) {
+		int a, b, c, d;
+		a = getNum();
+		b = getDenom();
+		c = x.getNum();
+		d = x.getDenom();
 
+		return ((a * d - b * c) / (b * d));
 	}
-	float substract() {
+	double multiply(rationalNumber x) {
+		int a, b, c, d;
+		a = getNum();
+		b = getDenom();
+		c = x.getNum();
+		d = x.getDenom();
 
+		return ((a * c) / (b * d));
 	}
-	float multiply() {
+	double divide(rationalNumber x) {
+		int a, b, c, d;
+		a = getNum();
+		b = getDenom();
+		c = x.getNum();
+		d = x.getDenom();
 
+		return ((a * d) / (c * b));
 	}
-	float divide() {
+	bool less(rationalNumber x) {
+		int a, b, c, d;
+		a = getNum();
+		b = getDenom();
+		c = x.getNum();
+		d = x.getDenom();
 
+		if ((a * d) < (c * b))
+			return true;
+		else
+			return false;
 	}
-	bool less() {
+	double negative() {
+		int a, b;
+		a = getNum();
+		b = getDenom();
 
+		return ((-1 * a) / b);
 	}
-	float negative(float number) {
-		return -number;
-	}
-	void input() {
-		
-	}
-	void output() {
-
-	}
+	
 };
+
+void input() {
+
+}
+void output() {
+
+}
 
 int main() {
 	int n1, d1, n2, d2;
