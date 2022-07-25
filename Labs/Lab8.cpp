@@ -4,22 +4,14 @@ class Movie {
 private:
     string name;
     string mpaaRating;
-    //int terribleCount;
-    //int badCount;
-    //int okCount;
-    //int goodCount;
-    //int greatCount;
+    // declaring dyanmic array
     int *arr;
     
 public:
     Movie(string nameInput, string MPAAinput) {
         name = nameInput;
         mpaaRating = MPAAinput;
-        // terribleCount = 0;
-        // badCount = 0;
-        // okCount = 0;
-        // goodCount = 0;
-        // greatCount = 0;
+        //intiliazing dynamic array
         arr = new int[5];
         for (int i = 0; i < 5; i++)
         {
@@ -27,6 +19,7 @@ public:
         }
     }
     Movie() {
+        //intiliazing dynamic array
          arr = new int[5];
         for (int i = 0; i < 5; i++)
         {
@@ -110,6 +103,7 @@ int main(){
     cout << movie2.getMPAA() << endl;  //PG-13
     cout << movie2.getAverage() << endl;  //3.8
 
+    //Deep Copying
     movie1 = movie2;
     movie1.addRating(5);
     cout << movie1.getAverage()<< endl; //4
