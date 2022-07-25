@@ -4,14 +4,22 @@ class Movie {
 private:
     string name;
     string mpaaRating;
-    
+    //int terribleCount;
+    //int badCount;
+    //int okCount;
+    //int goodCount;
+    //int greatCount;
     int *arr;
     
 public:
     Movie(string nameInput, string MPAAinput) {
         name = nameInput;
         mpaaRating = MPAAinput;
-        
+        // terribleCount = 0;
+        // badCount = 0;
+        // okCount = 0;
+        // goodCount = 0;
+        // greatCount = 0;
         arr = new int[5];
         for (int i = 0; i < 5; i++)
         {
@@ -57,7 +65,27 @@ public:
         return sum/(sum2*1.0);
         
     }
-    
+    //copy constructor
+    Movie(Movie &y){
+        //deep copy
+        this->arr = new int[5];
+        for (int i = 0; i < 5; i++)
+        {
+            this->arr[i] = y.arr[i];
+        }
+        
+    }
+    //Operator Equal Member function
+    void operator=(Movie x){
+        for (int i = 0; i < 5; i++)
+        {
+            this->arr[i] = x.arr[i];
+        }
+        
+    }
+    ~Movie(){
+        delete []arr;
+    }
 };
 int main(){
     Movie movie1("300", "R");
