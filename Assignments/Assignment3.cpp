@@ -1,4 +1,5 @@
 #include<iostream>
+#include<cmath>
 using namespace std;
 class Polynomial{
 private:
@@ -42,6 +43,9 @@ public:
     friend const Polynomial operator+(const Polynomial& p1, const Polynomial& p2);
     friend const Polynomial operator-(const Polynomial& p1, const Polynomial& p2);
     friend const Polynomial operator*(const Polynomial& p1, const Polynomial& p2);
+    friend const Polynomial operator+(const Polynomial& p1, double x);
+    friend const Polynomial operator-(const Polynomial& p1, double x);
+    friend const Polynomial operator*(const Polynomial& p1, double x);
 
     Polynomial& operator=(Polynomial x) {
         if (numCoeff != x.numCoeff) {
@@ -118,7 +122,7 @@ int main(){
     cout << endl << "p2: ";
     p2.print();
 
-    cout << endl << "------------------------------" << endl;
+    cout << endl << "---------------Polynomial Arithmetic---------------" << endl;
     //Subtraction
     cout << "p1 - p2: ";
     Polynomial p3 = p2 - p1;
@@ -133,7 +137,22 @@ int main(){
     cout << endl << "p1 * p2: ";
     Polynomial p5 = p1 * p2;
     p5.print();
+    cout << endl << "---------------Constant Value Arithmetic---------------" << endl;
+    //Adition with constant
+    cout << "p1 + 2: ";
+    Polynomial p6 = p1 - 2;
+    p6.print();
 
+    //Subtraction with constant 
+    cout <<endl << "p1 - 2: ";
+    Polynomial p7 = p1 - 2;
+    p7.print();
+
+    //Multiplication with constant
+    cout <<endl << "p1 * 2: ";
+    Polynomial p8 = p1 * 2;
+    p8.print();
+    cout << endl << "---------------Polynomial Functions---------------" << endl;
     //Functions
     cout << endl << "The coefficient of second degree exponent is: " << p1.get(2) << endl;
 
@@ -167,6 +186,16 @@ const Polynomial operator+(const Polynomial& p1, const Polynomial& p2) {
     }
     return sum;
 }
+const Polynomial operator+(const Polynomial& p1, double x){
+    Polynomial sume;
+    sume.numCoeff = p1.numCoeff;
+
+    delete[] sume.coeff;
+    sume.coeff = new double[sume.numCoeff];
+    sume.coeff[0] = p1.coeff[0] + x;
+    return sume;
+}
+
 const Polynomial operator-(const Polynomial& p1, const Polynomial& p2) {
     Polynomial diff;
     if (p1.numCoeff >= p2.numCoeff) {
@@ -188,6 +217,15 @@ const Polynomial operator-(const Polynomial& p1, const Polynomial& p2) {
     }
     return diff;
 }
+const Polynomial operator-(const Polynomial& p1, double x){
+    Polynomial diffe;
+    diffe.numCoeff = p1.numCoeff;
+
+    delete[] diffe.coeff;
+    diffe.coeff = new double[diffe.numCoeff];
+    diffe.coeff[0] = p1.coeff[0] - x;
+    return diffe;
+}
 const Polynomial operator*(const Polynomial& p1, const Polynomial& p2) {
     Polynomial product;
     product.numCoeff = p1.numCoeff + p2.numCoeff;
@@ -202,4 +240,14 @@ const Polynomial operator*(const Polynomial& p1, const Polynomial& p2) {
         }
     }
     return product;
+}
+
+const Polynomial operator*(const Polynomial& p1, double x){
+    Polynomial prod;
+    prod.numCoeff = p1.numCoeff;
+
+    delete[] prod.coeff;
+    prod.coeff = new double[prod.numCoeff];
+    prod.coeff[0] = p1.coeff[0] * x;
+    return prod;
 }
