@@ -58,7 +58,22 @@ public:
     }
     
     void print(){
-
+        bool flag = false;
+        for (int i = 0; i < numCoeff; i++) {
+            if (coeff[numCoeff - i - 1] != 0) {
+                flag = true;
+                cout << coeff[numCoeff - i - 1];
+                if ((numCoeff - i - 1) != 0) {
+                    cout << "x^" << numCoeff - i - 1;
+                }
+            }
+            if (flag && (i < (numCoeff - 1))) {
+                cout << " + ";
+            }
+        }
+        if (flag == false) {
+            cout << "0";
+        }
     }
     void set(double coeff, int exp) 
     {
