@@ -56,7 +56,7 @@ public:
         }
         return *this;
     }
-   
+    
     void print(){
 
     }
@@ -76,11 +76,58 @@ int main(){
     return 0;
 }
 const Polynomial operator+(const Polynomial& p1, const Polynomial& p2) {
-
-}
-const Polynomial operator*(const Polynomial& p1, const Polynomial& p2) {
-
+    Polynomial sum;
+    if (p1.numCoeff >= p2.numCoeff)
+        sum.numCoeff = p1.numCoeff;
+    else
+        sum.numCoeff = p2.numCoeff;
+    delete[] sum.coeff;
+    sum.coeff = new double[sum.numCoeff];
+    for (int i = 0; i < sum.numCoeff; i++)
+    {
+        sum.coeff[i] = 0;
+        if (i < p1.numCoeff) {
+            sum.coeff[i] += p1.coeff[i];
+        }
+        if (i < p2.numCoeff) {
+            sum.coeff[i] += p2.coeff[i];
+        }
+    }
+    return sum;
 }
 const Polynomial operator-(const Polynomial& p1, const Polynomial& p2) {
-
+    Polynomial diff;
+    if (p1.numCoeff >= p2.numCoeff) {
+        diff.numCoeff = p1.numCoeff;
+    }
+    else {
+        diff.numCoeff = p2.numCoeff;
+    }
+    delete[] diff.coeff;
+    diff.coeff = new double[diff.numCoeff];
+    for (int i = 0; i < diff.numCoeff; i++) {
+        diff.coeff[i] = 0;
+        if (i < p1.numCoeff) {
+            diff.coeff[i] += p1.coeff[i];
+        }
+        if (i < p2.numCoeff) {
+            diff.coeff[i] -= p2.coeff[i];
+        }
+    }
+    return diff;
+}
+const Polynomial operator*(const Polynomial& p1, const Polynomial& p2) {
+    Polynomial product;
+    product.numCoeff = p1.numCoeff + p2.numCoeff;
+    delete[] product.coeff;
+    product.coeff = new double[product.numCoeff];
+    for (int i = 0; i < product.numCoeff; i++) {
+        product.coeff[i] = 0;
+    }
+    for (int i = 0; i < p1.numCoeff; i++) {
+        for (int j = 0; j < p2.numCoeff; j++) {
+            product.coeff[i + j] += p1.coeff[i] * p2.coeff[j];
+        }
+    }
+    return product;
 }
