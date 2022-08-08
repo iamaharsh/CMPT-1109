@@ -28,13 +28,11 @@ public:
             coeff[i] = x[i];
     }
     //Copy Constructor
-    Polynomial(Polynomial &x)
+    Polynomial(const Polynomial& x)
     {
-        if (numCoeff != x.numCoeff) {
-            delete[] coeff;
-            numCoeff = x.numCoeff;
-            coeff = new double[numCoeff];
-        }
+        delete[] coeff;
+        coeff = new double[x.numCoeff];
+        numCoeff = x.numCoeff;
         for (int i = 0; i < numCoeff; i++) {
             coeff[i] = x.coeff[i];
         }
@@ -111,9 +109,15 @@ public:
 };
 int main(){
     double a[] = { 4,3,2,1 };
-    double b[] = { 3,2,1 };
+    double b[] = { 5,4,3,2 };
     Polynomial p1(a, 4);
-    Polynomial p2(b, 3);
+    Polynomial p2(b, 4);
+    cout << "p1: ";
+    p1.print();
+    cout << endl << "p2: ";
+    p2.print();
+    cout << endl << "------------------------------" << endl;
+    
     return 0;
 }
 
