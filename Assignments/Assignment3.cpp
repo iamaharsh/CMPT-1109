@@ -112,12 +112,38 @@ int main(){
     double b[] = { 5,4,3,2 };
     Polynomial p1(a, 4);
     Polynomial p2(b, 4);
+
     cout << "p1: ";
     p1.print();
     cout << endl << "p2: ";
     p2.print();
+
     cout << endl << "------------------------------" << endl;
+    //Subtraction
+    cout << "p1 - p2: ";
+    Polynomial p3 = p2 - p1;
+    p3.print();
     
+    //Addition
+    cout << endl << "p1 + p2: ";
+    Polynomial p4 = p1 + p2;
+    p4.print();
+    
+    //Multiplication 
+    cout << endl << "p1 * p2: ";
+    Polynomial p5 = p1 * p2;
+    p5.print();
+
+    //Functions
+    cout << endl << "The coefficient of second degree exponent is: " << p1.get(2) << endl;
+
+    p1.set(1, 2);
+
+    cout << "The coefficient of second degree exponent after setting it is: " << p1.get(2) << endl;
+
+    cout << "p1 at x=2 : " << p1.evaluate(2);
+
+
     return 0;
 }
 
