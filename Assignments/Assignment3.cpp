@@ -60,8 +60,34 @@ public:
     void print(){
 
     }
-    double evaluate(){
-
+    void set(double coeff, int exp) 
+    {
+        if (exp >= numCoeff) {
+            cout << "This polynomnial does not have such a high exponent.";
+            exit(0);
+        }
+        else {
+            this->coeff[exp] = coeff;
+        }
+    }
+    double get(int exp) 
+    {
+        if (exp >= numCoeff) {
+            cout << "This polynomnial does not have such a high exponent.";
+            exit(0);
+        }
+        else {
+            return coeff[exp];
+        }
+ 
+    }
+    double evaluate(double x)
+    {
+        double result = 0;
+        for (int i = 0; i < numCoeff; i++) {
+            result += coeff[i] * pow(x, i);
+        }
+        return result;
     }
     
     ~Polynomial(){
@@ -75,6 +101,7 @@ int main(){
     Polynomial p2(b, 3);
     return 0;
 }
+
 const Polynomial operator+(const Polynomial& p1, const Polynomial& p2) {
     Polynomial sum;
     if (p1.numCoeff >= p2.numCoeff)
